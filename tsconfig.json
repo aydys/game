@@ -12,6 +12,6 @@
       "@/*": ["src/*"],
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/**/*.stories.tsx"],
   "exclude": ["node_modules"]
 }

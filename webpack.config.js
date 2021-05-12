@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.tsx",
   devtool: "source-map",
   resolve: {
-    extentions: [".js", ".jsx", ".ts", "tsx"],
+    extentions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
       "@":  path.resolve(__dirname, "src")
     }
