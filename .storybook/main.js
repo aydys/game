@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const custom = require('../webpack.config');
+const custom = require('../webpack.config.js');
 
 module.exports = {
   stories: [
@@ -10,7 +10,6 @@ module.exports = {
     "@storybook/addon-essentials"
   ],
   webpackFinal: (config) => {
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
     config.module.rules.push({
       test: /\.stories\.tsx$/,
@@ -26,7 +25,7 @@ module.exports = {
     return {
       ...config,
       resolve: {
-        extensions: custom.resolve.extentions
+        extensions: custom.resolve.extensions
       },
       module: {
         ...config.module,
