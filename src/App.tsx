@@ -1,5 +1,5 @@
 import React, { FC } from "react";
 
 export const App: FC = () => {
-  return <div>Hello, React!</div>
-}
+  return <div>Hello, React!</div>;
+};

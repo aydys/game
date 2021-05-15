@@ -1,15 +1,15 @@
 module.exports = {
   presets: [
-    ["@babel/preset-env", { "targets": "defaults"}],
+    ["@babel/preset-env", { targets: "defaults" }],
     "@babel/preset-typescript",
-    "@babel/preset-react"
+    "@babel/preset-react",
   ],
   env: {
     production: {
-      plugins: ["emotion"]
+      plugins: ["emotion"],
     },
     development: {
-      plugins: [["emotion", { "sourceMap": true }]]
-    }
-  }
-}
+      plugins: [["emotion", { sourceMap: true }]],
+    },
+  },
+};
