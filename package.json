@@ -4,6 +4,7 @@
   "description": "Conway's Game of Life",
   "main": "index.js",
   "scripts": {
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --fix ./",
     "test:loki": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -36,6 +37,7 @@
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.4",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
     "babel-loader": "^8.2.2",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
