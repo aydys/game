@@ -4,6 +4,6 @@ module.exports = {
   moduleDirectories: ["node_modules", "src"],
   moduleNameMapper: {
     "^@/(.*)": "<rootDir>/src/$1",
-    "^@styled/(.*)": "<rootDir>/src/components/styled",
+    "^@styled": "<rootDir>/src/components/styled",
   },
 };
