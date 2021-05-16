@@ -10,4 +10,13 @@ export const BoxContainer = styled.div`
   label {
     font-size: 1em;
   }
+
+  select {
+    margin: 10px;
+    margin-left: 2px;
+  }
+
+  select:last-child {
+    margin-right: 0;
+  }
 `;
