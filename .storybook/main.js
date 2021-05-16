@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const custom = require('../webpack.config.js');
 
 module.exports = {
@@ -6,11 +5,20 @@ module.exports = {
     "../src/**/*.stories.tsx"
   ],
   addons: [
+    "@storybook/addon-actions",
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-knobs",
+    "@storybook/addon-storysource",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null
+      }
+    }    
   ],
   webpackFinal: (config) => {
-
     config.module.rules.push({
       test: /\.stories\.tsx$/,
       loaders: [
