@@ -8,6 +8,7 @@ module.exports = {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@styled": path.resolve(__dirname, "src/components/styled")
     },
   },
   output: {
