@@ -1,4 +1,3 @@
-
 import { actions, reducer, initialState } from "./reducer";
 
 describe("Game actions", () => {
@@ -31,26 +30,30 @@ describe("Game actions", () => {
   it("should create an action to running game", () => {
     const expectedAction = {
       type: actions.runningGame.type,
-      payload: false
+      payload: false,
     };
     expect(actions.runningGame(false)).toEqual(expectedAction);
   });
 
   it("should change running of game", () => {
-    expect(reducer(initialState, { type: actions.runningGame.type, payload: false })).toEqual({
+    expect(
+      reducer(initialState, { type: actions.runningGame.type, payload: false })
+    ).toEqual({
       ...initialState,
-      running: false
+      running: false,
     });
   });
 
   it("should return initial state after click cell", () => {
-    expect(reducer(initialState, { type: actions.clickField.type, payload: false })).toEqual(initialState);
+    expect(
+      reducer(initialState, { type: actions.clickField.type, payload: false })
+    ).toEqual(initialState);
   });
 
   it("should create an action to change field", () => {
     const expectedAction = {
       type: actions.changeField.type,
-      payload: [[true]]
+      payload: [[true]],
     };
     expect(actions.changeField([[true]])).toEqual(expectedAction);
   });

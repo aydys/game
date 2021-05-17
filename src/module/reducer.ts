@@ -21,7 +21,7 @@ interface GameState {
   size: "small" | "middle" | "large";
   speed: 200 | 500 | 800;
   filled: 0 | 0.1 | 0.25 | 0.5;
-  running: boolean
+  running: boolean;
 }
 
 export const initialState: GameState = {
@@ -29,7 +29,7 @@ export const initialState: GameState = {
   size: "middle",
   filled: 0.25,
   speed: 500,
-  running: false
+  running: false,
 };
 
 const gameSlice = createSlice({
