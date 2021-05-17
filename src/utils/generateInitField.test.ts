@@ -1,5 +1,17 @@
-import { shuffle, shuffleLineGrid, generateInitField } from "./generateInitField";
-describe("generateInitField" , () => {
+import {
+  shuffle,
+  shuffleLineGrid,
+  generateInitField,
+} from "./generateInitField";
+describe("generateInitField", () => {
+  beforeEach(() => {
+    jest.spyOn(global.Math, "random").mockReturnValue(0.3);
+  });
+
+  afterEach(() => {
+    jest.spyOn(global.Math, "random").mockRestore();
+  });
+
   it("shuffle array", () => {
     const mock = [false, true, false];
     const shuffledArray = shuffle(mock);
@@ -25,4 +37,4 @@ describe("generateInitField" , () => {
 
     expect(result).toEqual(mock);
   });
-})
+});
