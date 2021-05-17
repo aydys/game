@@ -1,1 +1,1 @@
-export { generateInitField } from './generateInitField';
+export { generateInitField } from "./generateInitField";

@@ -9,7 +9,7 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src"),
       "@styled": path.resolve(__dirname, "src/components/styled"),
-      "@utils": path.resolve(__dirname, "src/utils")
+      "@utils": path.resolve(__dirname, "src/utils"),
     },
   },
   output: {

@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, Store, combineReducers } from "redux";
+import { createStore, applyMiddleware, Store } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -10,7 +10,7 @@ function* rootSaga() {
   yield fork(gameSaga);
 }
 
-const rootReducer = combineReducers({ game: GameReducer });
+const rootReducer = GameReducer;
 const composeEnhancers = composeWithDevTools({});
 const sagaMiddleware = createSagaMiddleware();
 export const store: Store = createStore(
