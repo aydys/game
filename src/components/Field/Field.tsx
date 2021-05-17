@@ -23,6 +23,7 @@ export const Field: FC<Props> = (props) => {
             y={y}
           />
         )),
+        y !== row.length - 1 ? <br key={y} /> : null,
       ])}
     </BoxContainer>
   );
