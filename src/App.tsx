@@ -1,5 +1,6 @@
 import React, { FC } from "react";
+import { Game } from "@/module";
 
 export const App: FC = () => {
-  return <div>Hello, React!</div>;
+  return <Game />;
 };
