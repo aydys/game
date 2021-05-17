@@ -1,4 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { generateInitField } from "@utils";
+
+enum InitData {
+  filled = 0.25,
+  x = 30,
+  y = 15,
+}
 
 interface GameState {
   field: boolean[][];
@@ -8,7 +15,7 @@ interface GameState {
 }
 
 const initialState: GameState = {
-  field: [[false]],
+  field: generateInitField(InitData.x, InitData.y, InitData.filled),
   size: "middle",
   filled: 0.25,
   speed: 500,
@@ -18,6 +25,9 @@ const gameSlice = createSlice({
   name: "game",
   initialState,
   reducers: {
+    clickField: (state, { payload }) => {
+      state.field = payload;
+    },
     runningGame: (state, { payload }) => {
       state.speed = payload;
     },
