@@ -57,4 +57,12 @@ describe("Game actions", () => {
     };
     expect(actions.changeField([[true]])).toEqual(expectedAction);
   });
+  it("should change field", () => {
+    expect(
+      reducer(initialState, {
+        type: actions.changeField.type,
+        payload: [[true]],
+      })
+    ).toEqual({ ...initialState, field: [[true]] });
+  });
 });
