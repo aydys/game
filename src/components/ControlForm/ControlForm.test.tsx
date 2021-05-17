@@ -6,12 +6,12 @@ import "@testing-library/jest-dom";
 
 describe("Control form", () => {
   const props = {
-    handleSize: () => {},
-    handleSpeed: () => {},
-    handleFilled: () => {},
-    handleRunning: () => {},
-    handleClear: () => {},
-    running: true
+    handleSize: jest.fn(),
+    handleSpeed: jest.fn(),
+    handleFilled: jest.fn(),
+    handleRunning: jest.fn(),
+    handleClear: jest.fn(),
+    running: true,
   };
 
   test("render test", () => {
