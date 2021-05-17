@@ -40,7 +40,7 @@ export const ControlForm: FC<Props> = (props) => {
       <ButtonStyled onClick={handleRunning}>
         { running ? 'Stop' : 'Run' }
       </ButtonStyled>
-      <ButtonStyled onClick={handleClear}>Clear</ButtonStyled>
+      <ButtonStyled onClick={handleClear} disabled={!running}>Clear</ButtonStyled>
     </BoxContainer>
   </> ;
 };
