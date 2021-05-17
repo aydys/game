@@ -5,5 +5,6 @@ module.exports = {
   moduleNameMapper: {
     "^@/(.*)": "<rootDir>/src/$1",
     "^@styled": "<rootDir>/src/components/styled",
+    "^@utils": "<rootDir>/src/utils"
   },
 };

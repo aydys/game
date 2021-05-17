@@ -10,7 +10,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@styled": ["src/components/styled"]
+      "@styled": ["src/components/styled"],
+      "@utils": ["src/utils"]
     }
   },
   "include": ["src/**/*", "src/**/*.stories.tsx"],
