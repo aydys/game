@@ -33,7 +33,8 @@ module.exports = {
     return {
       ...config,
       resolve: {
-        extensions: custom.resolve.extensions
+        extensions: custom.resolve.extensions,
+        alias: custom.resolve.alias
       },
       module: {
         ...config.module,
