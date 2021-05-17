@@ -1,0 +1,1 @@
+export { generateInitField } from './generateInitField';
