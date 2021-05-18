@@ -19,7 +19,9 @@ export const Game: FC = () => {
   const handleSize = () => console.log("this is stub");
   const handleSpeed = () => console.log("this is stub");
   const handleFilled = () => console.log("this is stub");
-  const handleRunning = () => console.log("this is stub");
+  const handleRunning = () => () => {
+    dispatch(actions.runningGame());
+  };
   const handleClear = () => console.log("this is stub");
 
   return (

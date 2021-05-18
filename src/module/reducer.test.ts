@@ -30,15 +30,12 @@ describe("Game actions", () => {
   it("should create an action to running game", () => {
     const expectedAction = {
       type: actions.runningGame.type,
-      payload: false,
     };
-    expect(actions.runningGame(false)).toEqual(expectedAction);
+    expect(actions.runningGame()).toEqual(expectedAction);
   });
 
   it("should change running of game", () => {
-    expect(
-      reducer(initialState, { type: actions.runningGame.type, payload: false })
-    ).toEqual({
+    expect(reducer(initialState, { type: actions.runningGame.type })).toEqual({
       ...initialState,
       running: false,
     });
