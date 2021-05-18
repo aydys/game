@@ -14,7 +14,7 @@ export const Cell: FC<Props> = (props) => {
   return (
     <CellStyled
       data-testid="cell-id"
-      disabled={!running}
+      disabled={running}
       isFilled={isFilled}
       onClick={() => clickCell(x, y, isFilled)}
     />

@@ -29,7 +29,7 @@ export const ControlForm: FC<Props> = (props) => {
             id="size"
             defaultValue={"small"}
             onChange={handleSize}
-            disabled={!running}
+            disabled={running}
           >
             <option value="small">small</option>
             <option value="middle">middle</option>
@@ -41,7 +41,7 @@ export const ControlForm: FC<Props> = (props) => {
             id="speed"
             defaultValue={500}
             onChange={handleSpeed}
-            disabled={!running}
+            disabled={running}
           >
             <option value={800}>slow</option>
             <option value={500}>normal</option>
@@ -53,7 +53,7 @@ export const ControlForm: FC<Props> = (props) => {
             id="filled"
             defaultValue={0.1}
             onChange={handleFilled}
-            disabled={!running}
+            disabled={running}
           >
             <option value={0}>0</option>
             <option value={0.1}>10%</option>
@@ -66,7 +66,7 @@ export const ControlForm: FC<Props> = (props) => {
         <ButtonStyled onClick={handleRunning}>
           {running ? "Stop" : "Run"}
         </ButtonStyled>
-        <ButtonStyled onClick={handleClear} disabled={!running}>
+        <ButtonStyled onClick={handleClear} disabled={running}>
           Clear
         </ButtonStyled>
       </BoxContainer>

@@ -5,6 +5,7 @@ import { actions } from "./reducer";
 
 import { CenterContainer, Header } from "@styled";
 import { Field } from "@/components/Field";
+import { ControlForm } from "@/components/ControlForm";
 
 export const Game: FC = () => {
   const dispatch = useDispatch();
@@ -15,10 +16,24 @@ export const Game: FC = () => {
     dispatch(actions.clickField({ x, y, isFilled }));
   };
 
+  const handleSize = () => console.log("this is stub");
+  const handleSpeed = () => console.log("this is stub");
+  const handleFilled = () => console.log("this is stub");
+  const handleRunning = () => console.log("this is stub");
+  const handleClear = () => console.log("this is stub");
+
   return (
     <CenterContainer>
       <Header>Conway's Game of Life</Header>
       <Field field={field} running={running} clickCell={clickCell} />
+      <ControlForm
+        running={running}
+        handleSize={handleSize}
+        handleSpeed={handleSpeed}
+        handleFilled={handleFilled}
+        handleRunning={handleRunning}
+        handleClear={handleClear}
+      />
     </CenterContainer>
   );
 };
