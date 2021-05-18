@@ -1,8 +1,9 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { Game } from "./Game";
-import { render, screen } from "./test-utils";
+import { render, screen, waitFor } from "./test-utils";
 import { initialState } from "./reducer";
+import userEvent from "@testing-library/user-event";
 
 describe("Game", () => {
   it("render test", () => {
@@ -23,5 +24,18 @@ describe("Game", () => {
     expect(screen.getByTestId("size")).toBeDisabled();
     expect(screen.getByTestId("speed")).toBeDisabled();
     expect(screen.getByTestId("filled")).toBeDisabled();
+  });
+
+  it("should enabled game after click stop button", async () => {
+    render(<Game />, {
+      initialState: { ...initialState, field: [[true]], running: true },
+    });
+
+    userEvent.click(screen.getByText(/stop/i));
+    screen.debug();
+    await waitFor(() => {
+      screen.debug();
+      expect(screen.getByText(/run/i)).toBeInTheDocument();
+    });
   });
 });
