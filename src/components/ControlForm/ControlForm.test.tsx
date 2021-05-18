@@ -11,7 +11,7 @@ describe("Control form", () => {
     handleFilled: jest.fn(),
     handleRunning: jest.fn(),
     handleClear: jest.fn(),
-    running: true,
+    running: false,
   };
 
   test("render test", () => {
@@ -27,7 +27,7 @@ describe("Control form", () => {
   test("should call running/stop handler", () => {
     const handleRunning = jest.fn();
     render(<ControlForm {...props} handleRunning={handleRunning} />);
-    fireEvent.click(screen.getByText(/stop/i));
+    fireEvent.click(screen.getByText(/run/i));
     expect(handleRunning).toBeCalled();
   });
 

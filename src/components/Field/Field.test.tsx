@@ -9,7 +9,7 @@ describe("Field", () => {
     x: 0,
     y: 0,
     isFilled: false,
-    running: true,
+    running: false,
   };
 
   test("should clickable Cell", () => {
@@ -21,7 +21,7 @@ describe("Field", () => {
 
   it("passed onClick inside cells", () => {
     const clickCell = jest.fn();
-    render(<Field field={[[true]]} clickCell={clickCell} running={true} />);
+    render(<Field field={[[true]]} clickCell={clickCell} running={false} />);
     userEvent.click(screen.getByTestId("cell-id"));
     expect(clickCell).toHaveBeenCalledWith(0, 0, true);
   });

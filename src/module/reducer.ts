@@ -29,7 +29,7 @@ export const initialState: GameState = {
   size: "middle",
   filled: 0.25,
   speed: 500,
-  running: false,
+  running: true,
 };
 
 const gameSlice = createSlice({
@@ -40,8 +40,8 @@ const gameSlice = createSlice({
       state.field = payload;
     },
     clickField: (state, _payload: PayloadField) => state,
-    runningGame: (state, { payload }) => {
-      state.running = payload;
+    runningGame: (state) => {
+      state.running = !state.running;
     },
   },
 });
