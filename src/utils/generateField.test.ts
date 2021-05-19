@@ -2,8 +2,8 @@ import {
   shuffle,
   shuffleLineGrid,
   generateInitField,
-} from "./generateInitField";
-describe("generateInitField", () => {
+} from "./generateField";
+describe("generateField", () => {
   beforeEach(() => {
     jest.spyOn(global.Math, "random").mockReturnValue(0.3);
   });
