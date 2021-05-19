@@ -42,6 +42,9 @@ const gameSlice = createSlice({
     changeSize: (state, { payload }) => {
       state.size = payload;
     },
+    changeSpeed: (state, { payload }) => {
+      state.speed = payload;
+    },
     changeFilled: (state, { payload }) => {
       state.filled = payload;
     },

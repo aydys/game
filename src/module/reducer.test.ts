@@ -90,4 +90,18 @@ describe("Game actions", () => {
       reducer(initialState, { type: actions.changeFilled.type, payload: 0.1 })
     ).toEqual({ ...initialState, filled: 0.1 });
   });
+
+  it("should create an action to change speed", () => {
+    const expectedAction = {
+      type: actions.changeSpeed.type,
+      payload: "fast",
+    };
+    expect(actions.changeSpeed("fast")).toEqual(expectedAction);
+  });
+
+  it("should change speed of changing field to store", () => {
+    expect(
+      reducer(initialState, { type: actions.changeSpeed.type, payload: "fast" })
+    ).toEqual({ ...initialState, speed: "fast" });
+  });
 });
