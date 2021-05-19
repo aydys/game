@@ -1,4 +1,4 @@
-type Size = {
+export type Size = {
   countRows: number;
   countColumns: number;
 };
@@ -12,7 +12,7 @@ export const sizes: { [unit: string]: Size } = {
     countRows: 15,
     countColumns: 30,
   },
-  big: {
+  large: {
     countRows: 20,
     countColumns: 40,
   },
