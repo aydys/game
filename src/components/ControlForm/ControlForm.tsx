@@ -3,8 +3,8 @@ import { BoxContainer, ButtonStyled } from "@styled";
 
 interface Props {
   handleSize: (ev: ChangeEvent<HTMLSelectElement>) => void;
-  handleSpeed: () => void;
-  handleFilled: () => void;
+  handleSpeed: (ev: ChangeEvent<HTMLSelectElement>) => void;
+  handleFilled: (ev: ChangeEvent<HTMLSelectElement>) => void;
   handleRunning: () => void;
   handleClear: () => void;
   running: boolean;
