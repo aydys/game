@@ -1,5 +1,5 @@
 import { select, call } from "redux-saga/effects";
-import { expectSaga } from "redux-saga-test-plan";
+import { expectSaga, testSaga } from "redux-saga-test-plan";
 import {
   clickField,
   SelectorField,
@@ -7,9 +7,18 @@ import {
   SelectorSize,
   changeFilledField,
   clearField,
+  SelectorRunning,
+  SelectorSpeed,
+  runGame,
 } from "./saga";
 import { actions, initialState } from "./reducer";
-import { changeCellField, generateField, sizes, shuffledField } from "@utils";
+import {
+  changeCellField,
+  generateField,
+  sizes,
+  shuffledField,
+  stepGame,
+} from "@utils";
 
 describe("saga test", () => {
   it("change field after click cell", () => {
@@ -75,5 +84,31 @@ describe("saga test", () => {
       .provide([[select(SelectorSize), size]])
       .put({ type: actions.changeField.type, payload: mockField })
       .run();
+  });
+
+  it("check running game", () => {
+    const sizeField = "small";
+    const field = initialState.field;
+    const stepedField = stepGame(field, sizeField);
+    const saga = testSaga(runGame);
+    saga
+      .next()
+      .select(SelectorRunning)
+      .next(true)
+      .select(SelectorSize)
+      .next(sizeField)
+      .select(SelectorField)
+      .next(field)
+      .put({ type: actions.changeField.type, payload: stepedField })
+      .next()
+      .select(SelectorSpeed)
+      .next(200)
+      .delay(200)
+      .finish();
+  });
+
+  it("should stop game", () => {
+    const saga = testSaga(runGame);
+    saga.next().select(SelectorRunning).next(false).isDone().finish();
   });
 });

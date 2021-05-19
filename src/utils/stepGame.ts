@@ -1,7 +1,7 @@
 import produce from "immer";
 import { sizes } from "@utils";
 
-export const stepGame = (field: boolean[][], size: string) => {
+export const stepGame = (field: boolean[][], size: string): boolean[][] => {
   const operations: number[][] = [
     [0, 1],
     [0, -1],

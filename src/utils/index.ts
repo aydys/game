@@ -5,3 +5,4 @@ export {
 } from "./generateField";
 export { changeCellField } from "./changeCellField";
 export { sizes } from "./sizeMap";
+export { stepGame } from "./stepGame";
