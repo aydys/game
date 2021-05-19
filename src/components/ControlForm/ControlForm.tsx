@@ -27,7 +27,7 @@ export const ControlForm: FC<Props> = (props) => {
           <select
             data-testid="size"
             id="size"
-            defaultValue={"small"}
+            defaultValue={"middle"}
             onChange={handleSize}
             disabled={running}
           >
