@@ -8,7 +8,7 @@ export const BoxContainer = styled.div`
   font-size: 0;
 
   label {
-    font-size: 1em;
+    font-size: 1rem;
   }
 
   select {
