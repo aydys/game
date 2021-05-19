@@ -31,7 +31,9 @@ export const Game: FC = () => {
   const handleRunning = () => {
     dispatch(actions.runningGame());
   };
-  const handleClear = () => console.log("this is stub");
+  const handleClear = () => {
+    dispatch(actions.clearField());
+  };
 
   return (
     <CenterContainer>

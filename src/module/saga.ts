@@ -4,7 +4,7 @@ import { RootState } from "@/store";
 import { changeCellField, sizes, generateField, shuffledField } from "@utils";
 
 export const SelectorField = (state: RootState): boolean[][] => state.field;
-export const SelectorSize = (state: RootState): string => state.game.sizeField;
+export const SelectorSize = (state: RootState): string => state.size;
 
 export function* changeSizeField({
   payload,
@@ -30,7 +30,15 @@ export function* changeFilledField({
   yield put({ type: actions.changeField.type, payload: newField });
 }
 
+export function* clearField(): Generator {
+  const sizeField = (yield select(SelectorSize)) as string;
+  const newField = shuffledField(0, sizeField);
+  yield put({ type: actions.changeField.type, payload: newField });
+}
+
 export function* gameSaga(): Generator {
   yield takeEvery(actions.clickField.type, clickField);
   yield takeEvery(actions.changeSize.type, changeSizeField);
+  yield takeEvery(actions.changeFilled.type, changeFilledField);
+  yield takeEvery(actions.clearField.type, clearField);
 }

@@ -6,6 +6,7 @@ import {
   changeSizeField,
   SelectorSize,
   changeFilledField,
+  clearField,
 } from "./saga";
 import { actions, initialState } from "./reducer";
 import { changeCellField, generateField, sizes, shuffledField } from "@utils";
@@ -63,6 +64,15 @@ describe("saga test", () => {
         [select(SelectorSize), size],
         [call(shuffledField, filled, size), mockField],
       ])
+      .put({ type: actions.changeField.type, payload: mockField })
+      .run();
+  });
+
+  it("should clear field", () => {
+    const size = "small";
+    const mockField = shuffledField(0, size);
+    return expectSaga(clearField)
+      .provide([[select(SelectorSize), size]])
       .put({ type: actions.changeField.type, payload: mockField })
       .run();
   });
