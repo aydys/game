@@ -1,6 +1,12 @@
 import { takeEvery, put, select, call, delay, fork } from "redux-saga/effects";
-import { actions, PayloadField } from "./reducer";
-import { RootState } from "@/store";
+import {
+  actions,
+  PayloadField,
+  SelectorSpeed,
+  SelectorRunning,
+  SelectorField,
+  SelectorSize,
+} from "./reducer";
 import {
   changeCellField,
   sizes,
@@ -8,11 +14,6 @@ import {
   shuffledField,
   stepGame,
 } from "@utils";
-
-export const SelectorField = (state: RootState): boolean[][] => state.field;
-export const SelectorSize = (state: RootState): string => state.size;
-export const SelectorSpeed = (state: RootState): number => state.speed;
-export const SelectorRunning = (state: RootState): boolean => state.running;
 
 export function* changeSizeField({
   payload,

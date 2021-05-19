@@ -1,4 +1,12 @@
-import { actions, reducer, initialState } from "./reducer";
+import {
+  actions,
+  reducer,
+  initialState,
+  SelectorSize,
+  SelectorField,
+  SelectorRunning,
+  SelectorSpeed,
+} from "./reducer";
 
 describe("Game actions", () => {
   beforeEach(() => {
@@ -117,5 +125,25 @@ describe("Game actions", () => {
       ...initialState,
       filled: 0,
     });
+  });
+});
+
+describe("Selectors tests", () => {
+  it("check selector size", () => {
+    expect(SelectorSize(initialState)).toBe("middle");
+  });
+
+  it("check selector running", () => {
+    expect(SelectorRunning(initialState)).toBe(true);
+  });
+
+  it("check selector running", () => {
+    expect(SelectorSpeed(initialState)).toBe(500);
+  });
+
+  it("check selector running", () => {
+    expect(SelectorField({ ...initialState, field: [[true]] })).toEqual([
+      [true],
+    ]);
   });
 });

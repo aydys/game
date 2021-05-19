@@ -2,16 +2,19 @@ import { select, call } from "redux-saga/effects";
 import { expectSaga, testSaga } from "redux-saga-test-plan";
 import {
   clickField,
-  SelectorField,
   changeSizeField,
-  SelectorSize,
   changeFilledField,
   clearField,
-  SelectorRunning,
-  SelectorSpeed,
   runGame,
 } from "./saga";
-import { actions, initialState } from "./reducer";
+import {
+  actions,
+  initialState,
+  SelectorField,
+  SelectorSize,
+  SelectorRunning,
+  SelectorSpeed,
+} from "./reducer";
 import {
   changeCellField,
   generateField,

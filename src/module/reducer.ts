@@ -1,6 +1,7 @@
 import { Action } from "redux";
 import { createSlice } from "@reduxjs/toolkit";
 import { generateInitField } from "@utils";
+import { RootState } from "@/store";
 
 enum InitData {
   filled = 0.25,
@@ -31,6 +32,11 @@ export const initialState: GameState = {
   speed: 500,
   running: true,
 };
+
+export const SelectorField = (state: RootState): boolean[][] => state.field;
+export const SelectorSize = (state: RootState): string => state.size;
+export const SelectorSpeed = (state: RootState): number => state.speed;
+export const SelectorRunning = (state: RootState): boolean => state.running;
 
 const gameSlice = createSlice({
   name: "game",
