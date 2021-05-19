@@ -70,4 +70,24 @@ describe("Game actions", () => {
     };
     expect(actions.changeSize("large")).toEqual(expectedAction);
   });
+
+  it("should change size field to store", () => {
+    expect(
+      reducer(initialState, { type: actions.changeSize.type, payload: "small" })
+    ).toEqual({ ...initialState, size: "small" });
+  });
+
+  it("should create an action to change filled", () => {
+    const expectedAction = {
+      type: actions.changeFilled.type,
+      payload: 0.1,
+    };
+    expect(actions.changeFilled(0.1)).toEqual(expectedAction);
+  });
+
+  it("should change filled of field to store", () => {
+    expect(
+      reducer(initialState, { type: actions.changeFilled.type, payload: 0.1 })
+    ).toEqual({ ...initialState, filled: 0.1 });
+  });
 });
