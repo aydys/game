@@ -1,10 +1,9 @@
 import React, { ReactElement, ReactChildren, ReactNode } from "react";
 import { RootState } from "@/store";
 import { render as rtlRender, RenderResult } from "@testing-library/react";
-import { createStore, Store } from "redux";
+import { Store } from "redux";
 import { Provider } from "react-redux";
-// Import your own reducer
-import { reducer } from "./reducer";
+import { store as rootStore } from "@/store";
 
 type Option = {
   initialState?: RootState;
@@ -17,11 +16,7 @@ type WrapperType = {
 
 function render(
   ui: ReactElement,
-  {
-    initialState,
-    store = createStore(reducer, initialState),
-    ...renderOptions
-  }: Option = {}
+  { store = rootStore, ...renderOptions }: Option = {}
 ): RenderResult {
   function Wrapper({ children }: WrapperType): ReactElement {
     return <Provider store={store}>{children}</Provider>;
