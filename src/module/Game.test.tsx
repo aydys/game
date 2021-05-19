@@ -64,4 +64,17 @@ describe("Game", () => {
       expect(store.getState().filled).toBe(0.1);
     });
   });
+
+  it("should change filled of field after select other value", async () => {
+    const mock = 800;
+    render(<Game />, {
+      initialState: { ...initialState, speed: mock },
+    });
+
+    userEvent.selectOptions(screen.getByTestId(/speed/i), "fast");
+
+    await waitFor(() => {
+      expect(store.getState().speed).toBe(200);
+    });
+  });
 });
