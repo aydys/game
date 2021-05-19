@@ -4,6 +4,7 @@ import { Game } from "./Game";
 import { render, screen, waitFor } from "./test-utils";
 import { initialState } from "./reducer";
 import userEvent from "@testing-library/user-event";
+import { store } from "@/store";
 
 describe("Game", () => {
   it("render test", () => {
@@ -32,10 +33,22 @@ describe("Game", () => {
     });
 
     userEvent.click(screen.getByText(/stop/i));
-    screen.debug();
+
     await waitFor(() => {
-      screen.debug();
       expect(screen.getByText(/run/i)).toBeInTheDocument();
+    });
+  });
+
+  it("should change size field after select other size", async () => {
+    const mockSize = "small";
+    render(<Game />, {
+      initialState: { ...initialState, size: mockSize },
+    });
+
+    userEvent.selectOptions(screen.getByTestId(/size/i), "large");
+
+    await waitFor(() => {
+      expect(store.getState().size).toBe("large");
     });
   });
 });

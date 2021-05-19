@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { actions } from "./reducer";
@@ -16,7 +16,10 @@ export const Game: FC = () => {
     dispatch(actions.clickField({ x, y, isFilled }));
   };
 
-  const handleSize = () => console.log("this is stub");
+  const handleSize = (ev: ChangeEvent<HTMLSelectElement>) => {
+    const selectedSize = ev.target.value;
+    dispatch(actions.changeSize(selectedSize));
+  };
   const handleSpeed = () => console.log("this is stub");
   const handleFilled = () => console.log("this is stub");
   const handleRunning = () => {
