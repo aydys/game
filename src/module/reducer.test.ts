@@ -104,4 +104,18 @@ describe("Game actions", () => {
       reducer(initialState, { type: actions.changeSpeed.type, payload: "fast" })
     ).toEqual({ ...initialState, speed: "fast" });
   });
+
+  it("should create an action to clear field", () => {
+    const expectedAction = {
+      type: actions.clearField.type,
+    };
+    expect(actions.clearField()).toEqual(expectedAction);
+  });
+
+  it("should clear field to store", () => {
+    expect(reducer(initialState, { type: actions.clearField.type })).toEqual({
+      ...initialState,
+      filled: 0,
+    });
+  });
 });

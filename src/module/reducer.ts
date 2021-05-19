@@ -52,6 +52,9 @@ const gameSlice = createSlice({
     runningGame: (state) => {
       state.running = !state.running;
     },
+    clearField: (state) => {
+      state.filled = 0;
+    },
   },
 });
 
