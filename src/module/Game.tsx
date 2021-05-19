@@ -21,7 +21,10 @@ export const Game: FC = () => {
     dispatch(actions.changeSize(selectedSize));
   };
   const handleSpeed = () => console.log("this is stub");
-  const handleFilled = () => console.log("this is stub");
+  const handleFilled = (ev: ChangeEvent<HTMLSelectElement>) => {
+    const per = Number(ev.target.value);
+    dispatch(actions.changeFilled(per));
+  };
   const handleRunning = () => {
     dispatch(actions.runningGame());
   };

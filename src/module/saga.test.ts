@@ -1,8 +1,14 @@
-import { select } from "redux-saga/effects";
+import { select, call } from "redux-saga/effects";
 import { expectSaga } from "redux-saga-test-plan";
-import { clickField, SelectorField, changeSizeField } from "./saga";
+import {
+  clickField,
+  SelectorField,
+  changeSizeField,
+  SelectorSize,
+  changeFilledField,
+} from "./saga";
 import { actions, initialState } from "./reducer";
-import { changeCellField, generateField, sizes } from "@utils";
+import { changeCellField, generateField, sizes, shuffledField } from "@utils";
 
 describe("saga test", () => {
   it("change field after click cell", () => {
@@ -41,6 +47,23 @@ describe("saga test", () => {
         type: actions.changeField.type,
         payload: mockField,
       })
+      .run();
+  });
+
+  it("should change filled field", () => {
+    const size = "small";
+    const filled = 0.1;
+    const mockField = shuffledField(filled, size);
+
+    return expectSaga(changeFilledField, {
+      type: actions.changeFilled.type,
+      payload: filled,
+    })
+      .provide([
+        [select(SelectorSize), size],
+        [call(shuffledField, filled, size), mockField],
+      ])
+      .put({ type: actions.changeField.type, payload: mockField })
       .run();
   });
 });

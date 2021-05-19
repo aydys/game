@@ -51,4 +51,17 @@ describe("Game", () => {
       expect(store.getState().size).toBe("large");
     });
   });
+
+  it("should change filled of field after select other value", async () => {
+    const mock = 0.25;
+    render(<Game />, {
+      initialState: { ...initialState, filled: mock },
+    });
+
+    userEvent.selectOptions(screen.getByTestId(/filled/i), "0.1");
+
+    await waitFor(() => {
+      expect(store.getState().filled).toBe(0.1);
+    });
+  });
 });

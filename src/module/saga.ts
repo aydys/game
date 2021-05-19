@@ -1,9 +1,10 @@
-import { takeEvery, put, select } from "redux-saga/effects";
+import { takeEvery, put, select, call } from "redux-saga/effects";
 import { actions, PayloadField } from "./reducer";
 import { RootState } from "@/store";
-import { changeCellField, sizes, generateField } from "@utils";
+import { changeCellField, sizes, generateField, shuffledField } from "@utils";
 
 export const SelectorField = (state: RootState): boolean[][] => state.field;
+export const SelectorSize = (state: RootState): string => state.game.sizeField;
 
 export function* changeSizeField({
   payload,
@@ -19,6 +20,14 @@ export function* clickField({
   const field = (yield select(SelectorField)) as boolean[][];
   const result = changeCellField(field, x, y, isFilled);
   yield put({ type: actions.changeField.type, payload: result });
+}
+
+export function* changeFilledField({
+  payload,
+}: ReturnType<typeof actions.changeFilled>): Generator {
+  const sizeField = (yield select(SelectorSize)) as string;
+  const newField = yield call(shuffledField, payload, sizeField);
+  yield put({ type: actions.changeField.type, payload: newField });
 }
 
 export function* gameSaga(): Generator {
