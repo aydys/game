@@ -1,4 +1,4 @@
-import { takeEvery, put, select, call, delay } from "redux-saga/effects";
+import { takeEvery, put, select, call, delay, fork } from "redux-saga/effects";
 import { actions, PayloadField } from "./reducer";
 import { RootState } from "@/store";
 import {
@@ -67,4 +67,5 @@ export function* gameSaga(): Generator {
   yield takeEvery(actions.changeFilled.type, changeFilledField);
   yield takeEvery(actions.clearField.type, clearField);
   yield takeEvery(actions.runningGame.type, runGame);
+  yield fork(runGame);
 }
