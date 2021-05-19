@@ -1,4 +1,4 @@
-import { shuffle, shuffleLineGrid, generateInitField } from "./generateField";
+import { shuffle, shuffleLineGrid, shuffledField, generateInitField } from "./generateField";
 describe("generateField", () => {
   beforeEach(() => {
     jest.spyOn(global.Math, "random").mockReturnValue(0.3);
@@ -33,4 +33,14 @@ describe("generateField", () => {
 
     expect(result).toEqual(mock);
   });
+
+  it("shuffled field", () => {
+    const mock = [
+      [false, false, true],
+      [false, false, true],
+    ];
+    const result = shuffledField(0.35, "testSize");
+
+    expect(result).toEqual(mock);
+  })
 });

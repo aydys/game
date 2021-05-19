@@ -1,4 +1,4 @@
-import { Size } from "./sizeMap";
+import { Size, sizes } from "./sizeMap";
 
 export function shuffle(a: boolean[]): boolean[] {
   for (let i = a.length - 1; i > 0; i--) {
@@ -31,6 +31,17 @@ export const generateInitField = (
   }
 
   return result;
+};
+
+export const shuffledField = (
+  filled: number,
+  sizeField: string
+): boolean[][] => {
+  const newField = [];
+  for (let i = 0; i < sizes[sizeField].countRows; i += 1) {
+    newField.push(shuffleLineGrid(sizes[sizeField].countColumns, filled));
+  }
+  return newField;
 };
 
 export const generateField = (

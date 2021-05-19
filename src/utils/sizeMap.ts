@@ -16,4 +16,8 @@ export const sizes: { [unit: string]: Size } = {
     countRows: 20,
     countColumns: 40,
   },
+  testSize: {
+    countRows: 2,
+    countColumns: 3,
+  },
 };
