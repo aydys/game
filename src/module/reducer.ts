@@ -39,6 +39,9 @@ const gameSlice = createSlice({
     changeField: (state, { payload }) => {
       state.field = payload;
     },
+    changeSize: (state, { payload }) => {
+      state.size = payload;
+    },
     clickField: (state, _payload: PayloadField) => state,
     runningGame: (state) => {
       state.running = !state.running;

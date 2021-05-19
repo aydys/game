@@ -62,4 +62,12 @@ describe("Game actions", () => {
       })
     ).toEqual({ ...initialState, field: [[true]] });
   });
+
+  it("should create an action to change size", () => {
+    const expectedAction = {
+      type: actions.changeSize.type,
+      payload: "large",
+    };
+    expect(actions.changeSize("large")).toEqual(expectedAction);
+  });
 });
