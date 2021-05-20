@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "allowJs": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@styled": ["src/components/styled"],
+      "@utils": ["src/utils"]
+    }
+  },
+  "include": ["src/**/*", "src/**/*.stories.tsx"],
+  "exclude": ["node_modules"]
+}
