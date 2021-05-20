@@ -42,6 +42,8 @@
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-storysource": "^6.2.9",
     "@storybook/react": "^6.2.9",
+    "@stryker-mutator/core": "^5.0.0",
+    "@stryker-mutator/jest-runner": "^5.0.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
