@@ -1,7 +1,0 @@
-node_modules
-dist
-storybook-static
-coverage
-# stryker temp files
-.stryker-tmp
-reports
