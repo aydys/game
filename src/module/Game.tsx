@@ -24,8 +24,10 @@ export const Game: FC = () => {
     const speed = Number(ev.target.value);
     dispatch(actions.changeSpeed(speed));
   };
-  const handleFilled = (ev: ChangeEvent<HTMLSelectElement>) => {
-    const per = Number(ev.target.value);
+  const handleFilled = (
+    ev: React.MouseEvent<HTMLSelectElement, MouseEvent>
+  ) => {
+    const per = Number(ev.currentTarget.value);
     dispatch(actions.changeFilled(per));
   };
   const handleRunning = () => {
