@@ -4,7 +4,7 @@ import { BoxContainer, ButtonStyled } from "@styled";
 interface Props {
   handleSize: (ev: ChangeEvent<HTMLSelectElement>) => void;
   handleSpeed: (ev: ChangeEvent<HTMLSelectElement>) => void;
-  handleFilled: (ev: ChangeEvent<HTMLSelectElement>) => void;
+  handleFilled: (ev: React.MouseEvent<HTMLSelectElement, MouseEvent>) => void;
   handleRunning: () => void;
   handleClear: () => void;
   running: boolean;
@@ -52,7 +52,7 @@ export const ControlForm: FC<Props> = (props) => {
             data-testid="filled"
             id="filled"
             defaultValue={0.1}
-            onChange={handleFilled}
+            onClick={handleFilled}
             disabled={running}
           >
             <option value={0}>0</option>
