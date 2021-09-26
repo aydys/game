@@ -4,7 +4,7 @@
   "description": "Conway's Game of Life",
   "main": "index.js",
   "scripts": {
-    "start": "npx webpack serve --mode development --open --hot",
+    "start": "npx webpack serve --mode development --open --hot --host 0.0.0.0",
     "build": "npx webpack --mode production",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --fix ./",
     "test": "npx jest",
